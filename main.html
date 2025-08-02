@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gangmonkeys.com</title>
@@ -27,22 +29,22 @@
         Click to Enter
     </div>
     <div class="volume-slider-container">
-
         <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="0.5">
     </div>
 
-    <video id="bgVideo" autoplay="" muted="" loop="" playsinline="">
-        <source src="media/bg.mp4" type="video/mp4">
+    <video id="bgVideo" autoplay muted loop playsinline>
+        <source src="new-folder-name/bg.mp4" type="video/mp4">
     </video>
+
     <div class="blur-overlay"></div>
     <div class="gif-container">
-        <img src="images/gangmonkeys.gif" alt="Animated Graphic">
+        <img src="new-folder-name/gangmonkeys.gif" alt="Animated Graphic">
     </div>
 
     <div class="button-container">
-        <button class="outlined-button" onclick="window.location.href='/depot';">Depot</button>
-        <button class="outlined-button" onclick="window.location.href='/archive';">Archive</button>
-        <button class="outlined-button" onclick="window.location.href='/hoa';">HOA</button>
+        <button class="outlined-button" onclick="window.location.href='depot.html';">Depot</button>
+        <button class="outlined-button" onclick="window.location.href='archive.html';">Archive</button>
+        <button class="outlined-button" onclick="window.location.href='hoa.html';">HOA</button>
     </div>
 
     <div id="search-container">
@@ -64,9 +66,10 @@
     </div>
 
     <a href="https://discord.gg/Hp3YdcKd" target="_blank" class="discord-logo">
-        <img src="images/discord.png" alt="Discord Logo">
+        <img src="new-folder-name/discord.png" alt="Discord Logo">
     </a>
-    <audio id="backgroundAudio" src="media/Roi.ogg" loop="" autoplay=""></audio>
+
+    <audio id="backgroundAudio" src="new-folder-name/Roi.ogg" loop autoplay></audio>
 
     <div id="clock"></div>
     <div id="timeCheckPopup" style="display: none;">
@@ -74,8 +77,7 @@
     </div>
 
     <script src="js/script.js"></script>
-    <script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+    <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
     <script src="js/clown.js"></script>
-
-
-</body></html>
+</body>
+</html>
