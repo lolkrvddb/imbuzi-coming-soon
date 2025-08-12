@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The WareHouse</title>
+  <title>6RKN</title>
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Hall Of Retards." />
+  <meta name="description" content="Retards" />
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Courier New', monospace;
       background-color: #000;
-      color: #ff4444;
+      color: #fff;
     }
 
     .animated-gif-bg {
@@ -23,73 +23,67 @@
       min-height: 100%;
       z-index: -3;
       object-fit: cover;
-      opacity: 0.25;
+      opacity: 0.15;
       pointer-events: none;
     }
 
     .main {
       padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
 
     .blur-overlay {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background: rgba(0, 0, 0, 0.7);
       z-index: -1;
     }
 
     .section-divider {
       height: 1px;
-      background: #ff4444;
-      opacity: 0.3;
+      background: white;
+      opacity: 0.2;
       margin: 2rem 0;
     }
 
     .section-title {
       font-size: 2rem;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       animation: pulseText 3s ease-in-out infinite;
     }
 
     .card-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
       justify-content: center;
     }
 
     .user-card {
-      width: 180px;
-      height: 220px;
-      border: 2px solid #ff4444;
+      border: 2px solid white;
       border-radius: 12px;
-      background-color: #000;
-      color: #ff4444;
-      padding: 1rem;
+      background-color: #111;
+      color: white;
+      padding: 1.5rem;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      animation: float 4s ease-in-out infinite;
       transition: transform 0.3s, box-shadow 0.3s;
       position: relative;
     }
 
     .user-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px red, 0 0 40px #ff4444;
+      box-shadow: 0 0 20px white, 0 0 40px white;
     }
 
     .user-pfp {
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #ff4444;
-      margin-bottom: 0.75rem;
-      animation: pulseShadow 3s infinite;
+      border: 2px solid white;
+      margin-bottom: 1rem;
     }
 
     .username {
@@ -102,7 +96,7 @@
 
     .description {
       font-size: 0.95rem;
-      color: #cc3333;
+      color: #ccc;
       font-style: italic;
       position: relative;
       z-index: 3;
@@ -113,20 +107,20 @@
       bottom: 20px;
       left: 20px;
       z-index: 999;
-      color: #ff0000;
+      color: white;
       font-weight: bold;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(255, 255, 255, 0.1);
       padding: 10px 15px;
       border-radius: 8px;
       text-decoration: none;
-      box-shadow: 0 0 10px #ff0000;
+      border: 1px solid white;
     }
 
     #overlay {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background-color: rgba(0,0,0,0.95);
-      color: #ff4444;
+      color: white;
       font-size: 2rem;
       display: none;
       justify-content: center;
@@ -136,17 +130,16 @@
     }
 
     .logo-glow {
-      max-width: 300px;
-      width: 80%;
-      filter: drop-shadow(0 0 10px red);
-      animation: flicker 2s infinite alternate;
-      position: relative;
+      max-width: 220px;
+      width: 60%;
+      filter: drop-shadow(0 0 10px white);
       display: block;
+      margin: 0 auto 2rem auto;
     }
 
     #loading-screen {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background-color: #000;
       z-index: 2000;
       display: flex;
@@ -158,7 +151,7 @@
 
     .spinner {
       border: 6px solid #222;
-      border-top: 6px solid #ff4444;
+      border-top: 6px solid white;
       border-radius: 50%;
       width: 60px;
       height: 60px;
@@ -167,236 +160,29 @@
     }
 
     .loading-text {
-      font-family: 'Courier New', monospace;
       font-size: 1.5rem;
-      color: #ff4444;
-      text-shadow: 0 0 10px #ff4444;
+      color: white;
+      text-shadow: 0 0 10px white;
       letter-spacing: 4px;
     }
 
-    @keyframes pulseShadow {
-      0% { box-shadow: 0 0 6px #ff4444; }
-      50% { box-shadow: 0 0 12px #ff4444; }
-      100% { box-shadow: 0 0 6px #ff4444; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    @keyframes pulseText {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The WareHouse</title>
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Hall of vrchatians." />
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Courier New', monospace;
-      background-color: #000;
-      color: #ff4444;
-    }
-
-    .animated-gif-bg {
+    .made-by {
       position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -3;
-      object-fit: cover;
-      opacity: 0.25;
-      pointer-events: none;
+      bottom: 10px;
+      right: 10px;
+      font-size: 0.85rem;
+      color: white;
+      text-shadow: 0 0 8px white;
+      background-color: rgba(0,0,0,0.7);
+      padding: 4px 8px;
+      border-radius: 6px;
     }
 
-    .main {
-      padding: 2rem;
-    }
-
-    .blur-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: -1;
-    }
-
-    .section-divider {
-      height: 1px;
-      background: #ff4444;
-      opacity: 0.3;
-      margin: 2rem 0;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 1rem;
-      animation: pulseText 3s ease-in-out infinite;
-    }
-
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .user-card {
-      width: 180px;
-      height: 220px;
-      border: 2px solid #ff4444;
-      border-radius: 12px;
-      background-color: #000;
-      color: #ff4444;
-      padding: 1rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      animation: float 4s ease-in-out infinite;
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-    }
-
-    .user-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px red, 0 0 40px #ff4444;
-    }
-
-    .user-pfp {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #ff4444;
-      margin-bottom: 0.75rem;
-      animation: pulseShadow 3s infinite;
-    }
-
-    .username {
-      font-weight: bold;
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-      position: relative;
-      z-index: 3;
-    }
-
-    .description {
-      font-size: 0.95rem;
-      color: #cc3333;
-      font-style: italic;
-      position: relative;
-      z-index: 3;
-    }
-
-    .youtube-link {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 999;
-      color: #ff0000;
-      font-weight: bold;
-      background-color: rgba(0,0,0,0.8);
-      padding: 10px 15px;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 0 10px #ff0000;
-    }
-
-    #overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.95);
-      color: #ff4444;
-      font-size: 2rem;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .logo-glow {
-      max-width: 300px;
-      width: 80%;
-      filter: drop-shadow(0 0 10px red);
-      animation: flicker 2s infinite alternate;
-      position: relative;
-      display: block;
-      margin: 0 auto 1rem auto;
-    }
-
-    #loading-screen {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: #000;
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.6s ease;
-    }
-
-    .spinner {
-      border: 6px solid #222;
-      border-top: 6px solid #ff4444;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      animation: spin 1s linear infinite;
-      margin-bottom: 1rem;
-    }
-
-    .loading-text {
-      font-family: 'Courier New', monospace;
-      font-size: 1.5rem;
-      color: #ff4444;
-      text-shadow: 0 0 10px #ff4444;
-      letter-spacing: 4px;
-    }
-
-    @keyframes pulseShadow {
-      0% { box-shadow: 0 0 6px #ff4444; }
-      50% { box-shadow: 0 0 12px #ff4444; }
-      100% { box-shadow: 0 0 6px #ff4444; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    @keyframes pulseText {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
+    /* White glitch effect */
     .glitch {
       position: relative;
-      color: #ff4444;
+      color: white;
     }
-
     .glitch::before,
     .glitch::after {
       content: attr(data-text);
@@ -407,16 +193,14 @@
       clip: rect(0, 900px, 0, 0);
       overflow: hidden;
     }
-
     .glitch::before {
       animation: glitchTop 2s infinite linear alternate-reverse;
-      color: #ff2222;
+      color: #ddd;
       z-index: 1;
     }
-
     .glitch::after {
       animation: glitchBottom 2s infinite linear alternate-reverse;
-      color: #ff8888;
+      color: #aaa;
       z-index: 2;
     }
 
@@ -427,7 +211,6 @@
       30% { clip: rect(0, 9999px, 7px, 0); transform: translate(-2px, 0); }
       40%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
     }
-
     @keyframes glitchBottom {
       0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
       10% { clip: rect(5px, 9999px, 10px, 0); transform: translate(2px, 2px); }
@@ -436,61 +219,14 @@
       40%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
     }
 
-    .made-by {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.85rem;
-      color: #ff4444;
-      text-shadow: 0 0 8px #ff4444;
-      background-color: rgba(0,0,0,0.7);
-      padding: 4px 8px;
-      border-radius: 6px;
-      user-select: none;
-      z-index: 9999;
+    /* Animations */
+    @keyframes pulseText {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
     }
-
-    /* JOIN LOGS POPUP */
-    #comingSoonPopup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #111;
-      border: 2px solid #ff4444;
-      padding: 30px 40px;
-      color: #ff4444;
-      font-family: 'Courier New', monospace;
-      font-size: 1.4rem;
-      text-align: center;
-      z-index: 10001;
-      border-radius: 12px;
-      box-shadow: 0 0 30px red;
-    }
-
-    .join-btn {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      z-index: 9999;
-    }
-
-    .join-btn button {
-      background-color: black;
-      color: #ff4444;
-      border: 2px solid #ff4444;
-      padding: 10px 20px;
-      font-family: 'Courier New', monospace;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #ff4444;
-    }
-
-    .join-btn button:hover {
-      background: #1a1a1a;
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -502,121 +238,140 @@
   </div>
   <div id="overlay" onclick="playMusicAndHideOverlay()">Click to Enter</div>
 
-  <!-- JOIN LOGS BUTTON -->
-  <div class="join-btn">
-    <button onclick="showComingSoon()">Join Logs</button>
-  </div>
-
-  <!-- JOIN LOGS POPUP -->
-  <div id="comingSoonPopup">
-    ⚠️ Coming Soon
-    <br><br>
-    <button onclick="hideComingSoon()" style="
-      margin-top: 10px;
-      padding: 6px 15px;
-      font-size: 1rem;
-      background: black;
-      color: #ff4444;
-      border: 1px solid #ff4444;
-      border-radius: 6px;
-      cursor: pointer;
-    ">Close</button>
-  </div>
-
   <div class="main">
     <div class="blur-overlay"></div>
 
-    <!-- LOGO IMAGE -->
-    <div style="text-align: center; margin-bottom: 1rem;" class="glitch-img">
-      <img src="media/warehouse-logo.webp" alt="WAREHOUSE Logo" class="logo-glow" />
+    <div style="text-align: center;">
+      <img src="media/warehouse-logo.webp" alt="6RKN Logo" class="logo-glow" />
     </div>
 
     <div class="section-divider"></div>
 
     <div id="users-section">
-      <h2 class="section-title">WareHouse</h2>
+      <h2 class="section-title">6RKN</h2>
       <div id="userList" class="card-container">
-        <!-- Existing Members -->
+
+        <div class="user-card glitch" data-text="OPM BABY">
+          <img class="user-pfp" src="media/underscore-pfp.gif" alt="OPM BABY Profile Picture" />
+          <div class="username">OPM BABY</div>
+          <div class="description">Member</div>
+        </div>
+        <div class="user-card glitch" data-text="HELP ME">
+          <img class="user-pfp" src="media/deadspfp.gif" alt="HELP ME Profile Picture" />
+          <div class="username">HELP ME</div>
+          <div class="description">Member</div>
+        </div>
+        <div class="user-card glitch" data-text="CHEDDA BOB GOAT">
+          <img class="user-pfp" src="media/sedatedpfp.jpeg" alt="CHEDDA BOB GOAT Profile Picture" />
+          <div class="username">CHEDDA BOB GOAT</div>
+          <div class="description">Member</div>
+        </div>
+        <div class="user-card glitch" data-text="CATBOY">
+          <img class="user-pfp" src="media/pfp1.gif" alt="CATBOY Profile Picture" />
+          <div class="username">CATBOY</div>
+          <div class="description">Member</div>
+        </div>
+        <div class="user-card glitch" data-text="KURT">
+          <img class="user-pfp" src="media/pfp2.gif" alt="KURT Profile Picture" />
+          <div class="username">KURT</div>
+          <div class="description">Member</div>
+        </div>
+        <div class="user-card glitch" data-text="ACE">
+          <img class="user-pfp" src="media/pfp3.gif" alt="ACE Profile Picture" />
+          <div class="username">ACE</div>
+          <div class="description">Member</div>
+        </div>
+        <div class="user-card glitch" data-text="Clipzz">
+          <img class="user-pfp" src="media/pfp4.gif" alt="Clipzz Profile Picture" />
+          <div class="username">Clipzz</div>
+          <div class="description">Member</div>
+        </div>
         <div class="user-card glitch" data-text="Massacre">
-          <img class="user-pfp" src="media/underscore-pfp.gif" alt="UnderScore Profile Picture" />
+          <img class="user-pfp" src="media/pfp5.gif" alt="Massacre Profile Picture" />
           <div class="username">Massacre</div>
-          <div class="description">Owner Of Website</div>
-        </div>
-        <div class="user-card glitch" data-text="UnderScore">
-          <img class="user-pfp" src="media/deadspfp.gif" alt="Dead Hooker Profile Picture" />
-          <div class="username">UnderScore</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="fbi gov">
-          <img class="user-pfp" src="media/sedatedpfp.jpeg" alt="Sedated??? Profile Picture" />
-          <div class="username">fbi gov</div>
+        <div class="user-card glitch" data-text="FEMBOY">
+          <img class="user-pfp" src="media/pfp6.gif" alt="FEMBOY Profile Picture" />
+          <div class="username">FEMBOY</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="Shane">
-          <img class="user-pfp" src="media/pfp1.gif" alt="Shane Profile Picture" />
-          <div class="username">Shane</div>
+        <div class="user-card glitch" data-text="SOLITUDE">
+          <img class="user-pfp" src="media/pfp7.gif" alt="SOLITUDE Profile Picture" />
+          <div class="username">SOLITUDE</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="Atomic">
-          <img class="user-pfp" src="media/pfp2.gif" alt="Atomic Profile Picture" />
-          <div class="username">Atomic</div>
+        <div class="user-card glitch" data-text="FOGGY">
+          <img class="user-pfp" src="media/pfp8.gif" alt="FOGGY Profile Picture" />
+          <div class="username">FOGGY</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="45">
-          <img class="user-pfp" src="media/pfp3.gif" alt="45 Profile Picture" />
-          <div class="username">45</div>
+        <div class="user-card glitch" data-text="SLAUGHTER">
+          <img class="user-pfp" src="media/pfp9.gif" alt="SLAUGHTER Profile Picture" />
+          <div class="username">SLAUGHTER</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="5star_clipz">
-          <img class="user-pfp" src="media/pfp4.gif" alt="Death Profile Picture" />
-          <div class="username">5star_clipz</div>
+        <div class="user-card glitch" data-text="SWIVY">
+          <img class="user-pfp" src="media/pfp10.gif" alt="SWIVY Profile Picture" />
+          <div class="username">SWIVY</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="anbuu">
-          <img class="user-pfp" src="media/pfp5.gif" alt="anbuu Profile Picture" />
-          <div class="username">anbuu</div>
+        <div class="user-card glitch" data-text="ILLUMINATI GOD">
+          <img class="user-pfp" src="media/pfp12.gif" alt="ILLUMINATI GOD Profile Picture" />
+          <div class="username">ILLUMINATI GOD</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="Lad">
-          <img class="user-pfp" src="media/pfp6.gif" alt="Lad Profile Picture" />
-          <div class="username">Lad</div>
+        <div class="user-card glitch" data-text="UNDEAD/MOONGT">
+          <img class="user-pfp" src="media/pfp13.gif" alt="UNDEAD/MOONGT Profile Picture" />
+          <div class="username">UNDEAD/MOONGT</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="Deception">
-          <img class="user-pfp" src="media/pfp7.gif" alt="Deception Profile Picture" />
-          <div class="username">Deception</div>
+        <div class="user-card glitch" data-text="ENMESHED">
+          <img class="user-pfp" src="media/pfp14.gif" alt="ENMESHED Profile Picture" />
+          <div class="username">ENMESHED</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="Hellthy">
-          <img class="user-pfp" src="media/pfp8.gif" alt="Hellthy Profile Picture" />
-          <div class="username">Hellthy</div>
-          <div class="description">Member</div>
-          </div>
-        <div class="user-card glitch" data-text="Hellthy">
-          <img class="user-pfp" src="media/pfp9.gif" alt="Hellthy Profile Picture" />
-          <div class="username">?Solitude?</div>
+        <div class="user-card glitch" data-text="DETERMINIST">
+          <img class="user-pfp" src="media/pfp15.gif" alt="DETERMINIST Profile Picture" />
+          <div class="username">DETERMINIST</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="GoblinJr">
-          <img class="user-pfp" src="media/pfp10.gif" alt="GoblinJr Profile Picture" />
-          <div class="username">GoblinJr</div>
+        <div class="user-card glitch" data-text="CLOUDY REI">
+          <img class="user-pfp" src="media/pfp16.gif" alt="CLOUDY REI Profile Picture" />
+          <div class="username">CLOUDY REI</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="Greed">
-          <img class="user-pfp" src="media/pfp12.gif" alt="Greed Profile Picture" />
-          <div class="username">Greed</div>
+        <div class="user-card glitch" data-text="MIKE THE GANGSTA">
+          <img class="user-pfp" src="media/pfp17.gif" alt="MIKE THE GANGSTA Profile Picture" />
+          <div class="username">MIKE THE GANGSTA</div>
           <div class="description">Member</div>
         </div>
-        <div class="user-card glitch" data-text="888-SCHIZO">
-          <img class="user-pfp" src="media/pfp13.gif" alt="888-SCHIZO Profile Picture" />
-          <div class="username">888-SCHIZO</div>
+        <div class="user-card glitch" data-text="NUKE K">
+          <img class="user-pfp" src="media/pfp18.gif" alt="NUKE K Profile Picture" />
+          <div class="username">NUKE K</div>
           <div class="description">Member</div>
         </div>
+        <div class="user-card glitch" data-text="Y2k trendy">
+          <img class="user-pfp" src="media/pfp19.gif" alt="Y2k trendy Profile Picture" />
+          <div class="username">Y2k trendy</div>
+          <div class="description">Member</div>
+        </div>
+        <div class="user-card glitch" data-text="FaddedK">
+          <img class="user-pfp" src="media/pfp20.gif" alt="FaddedK Profile Picture" />
+          <div class="username">FaddedK</div>
+          <div class="description">Member</div>
+        </div>
+        <div class="user-card glitch" data-text="Misty">
+          <img class="user-pfp" src="media/pfp21.gif" alt="Misty Profile Picture" />
+          <div class="username">Misty</div>
+          <div class="description">Member</div>
+        </div>
+
       </div>
     </div>
 
-    <a href="https://www.youtube.com/" target="_blank" class="youtube-link">warehouse</a>
-    <audio id="backgroundAudio" src="media/0526.ogg" loop autoplay muted></audio>
+    <a href="https://www.youtube.com/" target="_blank" class="youtube-link">6RKN</a>
+    <audio id="backgroundAudio" src="media/0526.ogg" autoplay muted></audio>
   </div>
 
   <div class="made-by">Made By massacre</div>
@@ -628,14 +383,6 @@
       audio.muted = false;
       audio.play();
       overlay.style.display = 'none';
-    }
-
-    function showComingSoon() {
-      document.getElementById('comingSoonPopup').style.display = 'block';
-    }
-
-    function hideComingSoon() {
-      document.getElementById('comingSoonPopup').style.display = 'none';
     }
 
     window.addEventListener('load', () => {
@@ -651,3 +398,4 @@
   </script>
 </body>
 </html>
+
